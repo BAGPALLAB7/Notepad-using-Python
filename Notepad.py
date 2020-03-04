@@ -68,3 +68,10 @@ if __name__ == '__main__':
     # Help Menu Ends
 
     root.config(menu=MenuBar)
+
+    #Adding Scrollbar using TKinter
+    Scroll=Scrollbar(TextArea)
+    Scroll.pack(side=RIGHT, fill=Y)
+    Scroll.config(command=TextArea.yview)
+    TextArea.config(yscrollcommand=Scroll.set)
+    
