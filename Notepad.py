@@ -3,7 +3,10 @@ from tkinter import *
 
 
 def newFile():
-    pass
+    global file
+    root.title("Untitled - Notepad (@bagpallab7)")
+    file = None
+    TextArea.delete(1.0, END)
 def openFile():
     pass
 def saveFile():
