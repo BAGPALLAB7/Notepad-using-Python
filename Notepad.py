@@ -1,5 +1,7 @@
 from tkinter import *
-
+from tkinter.messagebox import showinfo
+from tkinter.filedialog import askopenfilename
+import os
 
 
 def newFile():
@@ -8,9 +10,21 @@ def newFile():
     file = None
     TextArea.delete(1.0, END)
 def openFile():
-    pass
+    global file
+    file = askopenfilename(defaultextension=".text", filetypes=[("All files", "*.*"),("Text Documents", "*.txt")])
+    if file=="":
+        file=None
+    else:
+        root.title(os.path.basename(file)+"- Notepad")
+        TextArea.delete(1.0,END)
+        f=open(file,"r")
+        try:
+            TextArea.insert(1.0,f.read())
+            f.close()
+        except:
+            showinfo("bagpallab7","Open only text file.")
 def saveFile():
-    pass
+    global file
 def cut():
     TextArea.event_generate("<<Cut>>")
 def copy():
