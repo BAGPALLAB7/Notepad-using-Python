@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.messagebox import showinfo
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askopenfilename, asksaveasfilename
 import os
 
 
@@ -25,6 +25,27 @@ def openFile():
             showinfo("bagpallab7","Open only text file.")
 def saveFile():
     global file
+    if file == None:
+        file = asksaveasfilename(initialfile = 'Untitled.txt', defaultextension=".txt",
+                           filetypes=[("All Files", "*.*"),
+                                     ("Text Documents", "*.txt")])
+        if file =="":
+            file = None
+
+        else:
+            #Save as a new file
+            f = open(file, "w")
+            f.write(TextArea.get(1.0, END))
+            f.close()
+
+            root.title(os.path.basename(file) + " - Notepad")
+            print("File Saved")
+    else:
+        # Save the file
+        f = open(file, "w")
+        f.write(TextArea.get(1.0, END))
+        f.close()
+    
 def cut():
     TextArea.event_generate("<<Cut>>")
 def copy():
