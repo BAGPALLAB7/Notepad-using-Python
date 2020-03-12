@@ -39,7 +39,7 @@ def saveFile():
             f.close()
 
             root.title(os.path.basename(file) + " - Notepad")
-            print("File Saved")
+            showinfo("bagpallab7","File Saved.")
     else:
         # Save the file
         f = open(file, "w")
