@@ -53,7 +53,7 @@ def copy():
 def paste():
     TextArea.event_generate("<<Paste>>")
 def about():
-    pass
+    showinfo("bagpallab7","Hii, My name is Pallab, i'm a computer science engineer. I made this Notepad using Tkinter python module(March 2020). In this notepad you can perform many operatoins like inside edit menu you can perform cut, copy, pest operation and from file menu you can create new file, save file, open text file and at least you can exit from this application by clicking on the exit option inside the file menu.")
 
 
 if __name__ == '__main__':
